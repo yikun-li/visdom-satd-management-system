@@ -1,0 +1,30 @@
+@use "../../../styles/fonts";
+@use "../../../styles/colors";
+
+.header {
+  font-family: fonts.$header;
+  color: #ffffff;
+  margin: 0;
+}
+
+.header-h1 {
+  font-weight: 600;
+}
+
+.header-h2 {
+  font-weight: 500;
+}
+
+.header-h3 {
+  font-weight: 500;
+  color: #b6b6b6;
+}
+
+.header-h4 {
+}
+
+.header-h5 {
+}
+
+.header-h6 {
+}

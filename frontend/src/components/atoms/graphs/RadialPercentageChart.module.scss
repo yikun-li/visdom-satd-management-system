@@ -1,0 +1,23 @@
+@use "../../../styles/colors";
+
+.trail {
+  stroke: colors.$background-popup;
+  stroke-linecap: round;
+}
+
+.path {
+  stroke: colors.$primary;
+  stroke-linecap: round;
+  -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.root {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.percentage {
+  color: colors.$text-secondary;
+  font-size: 12px;
+}

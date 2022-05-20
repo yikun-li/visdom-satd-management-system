@@ -1,0 +1,44 @@
+@use "../../../styles/colors";
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px colors.$separator;
+}
+
+.item {
+  padding-inline: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: colors.$text-inactive;
+  transition: 0.2s;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 4px;
+    background-color: colors.$primary;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+}
+
+.active {
+  color: colors.$primary;
+
+  &::after {
+    left: 25%;
+    right: 25%;
+  }
+}

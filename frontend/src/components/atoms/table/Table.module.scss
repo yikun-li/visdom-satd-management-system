@@ -1,0 +1,125 @@
+@use "../../../styles/colors";
+@use "sass:color";
+
+.table {
+  border-radius: 12px;
+  background-color: colors.$background-front;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 48px;
+  position: relative;
+  transition: 0.2s;
+}
+
+.table:not(.empty).loading {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.table tr:not(.hidden) {
+  height: 80px;
+}
+
+.table th, .table td {
+  padding-inline: 16px;
+}
+
+.table th:first-child, .table td:first-child {
+  padding-left: 32px;
+}
+
+.table th:last-child, .table td:last-child {
+  padding-right: 32px;
+}
+
+.table tr:not(.hidden) > th {
+  color: colors.$text-primary;
+  font-weight: 400;
+  text-align: left;
+  font-size: 16px;
+}
+
+.table:not(.empty) tr:not(.hidden) > th {
+  border-bottom: solid 1px colors.$separator;
+}
+
+.table tr:not(:last-child):not(.hidden) > td {
+  border-bottom: solid 1px color.adjust(colors.$separator, $alpha: -0.4);
+}
+
+.table td {
+  color: colors.$text-secondary;
+  font-size: 14px;
+}
+
+.table tr.hidden {
+  height: 0;
+}
+
+.table tr.hidden > td {
+  height: 0;
+  padding: 0;
+}
+
+.table tr.clickableRow {
+  cursor: pointer;
+
+  & > td {
+    transition: 0.2s;
+  }
+
+  &:last-child > td {
+    &:first-child {
+      border-bottom-left-radius: 12px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 12px;
+    }
+  }
+
+  &:hover > td {
+    background-color: #303030;
+  }
+}
+
+.loadingRow {
+  height: 240px;
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.table:not(.empty).loading .loadingOverlay {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.spinnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.table tr:not(.table) > th.align-left, .table tr:not(.table) > td.align-left {
+text-align: left;
+}
+
+.table tr:not(.table) > th.align-center, .table tr:not(.table) > td.align-center {
+  text-align: center;
+}
+
+.table tr:not(.table) > th.align-right, .table tr:not(.table) > td.align-right {
+  text-align: right;
+}

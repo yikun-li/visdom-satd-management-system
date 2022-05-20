@@ -1,0 +1,60 @@
+@use "../../../styles/colors";
+@use "sass:color";
+
+.container {
+  list-style: none;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: colors.$background-front;
+  border-radius: 16px;
+}
+
+.page {
+}
+.pageLink {
+  display: flex;
+  height: 52px;
+  width: 52px;
+  justify-content: center;
+  align-items: center;
+  color: colors.$text-secondary;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 16px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: colors.$hover-item-background;
+  }
+}
+
+.active {}
+.activeLink {
+  background-color: colors.$active-item-background;
+  color: colors.$text-primary;
+  font-weight: 600;
+
+  &:hover {
+    background-color: colors.$active-item-background;
+  }
+}
+
+.break {}
+.breakLink {
+  @extend .pageLink;
+}
+
+.button {
+  @extend .pageLink;
+  color: colors.$text-primary;
+}
+.icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.disabled {
+  display: none;
+}

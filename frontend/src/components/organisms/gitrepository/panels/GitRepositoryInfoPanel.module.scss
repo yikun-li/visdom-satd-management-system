@@ -1,0 +1,16 @@
+@use "../../../../styles/colors";
+
+.top {
+  display: flex;
+}
+
+.gitIcon {
+  color: colors.$text-primary;
+  margin-right: 24px;
+  width: 64px;
+  height: 64px;
+}
+
+.topText {
+  flex: 1;
+}

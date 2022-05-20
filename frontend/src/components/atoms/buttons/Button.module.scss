@@ -1,0 +1,89 @@
+@use "../../../styles/fonts.scss";
+@use "../../../styles/colors.scss";
+
+.base {
+  display: inline-block;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: none;
+  transition: 0.2s;
+  font-family: fonts.$header;
+  font-size: 16px;
+  position: relative;
+  font-weight: 500;
+}
+
+.loading {
+  cursor: wait;
+}
+
+.typeIcon {
+  padding: 12px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+  }
+
+  svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: colors.$text-primary;
+  }
+}
+
+.typeLight {
+  background-color: colors.$text-primary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.typeColor {
+  background-color: var(--tint);
+  color: colors.$text-primary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.tint-blue {
+  --tint: #{colors.$focus-blue};
+}
+
+.tint-green {
+  --tint:  #{colors.$focus-green};
+}
+
+.tint-yellow {
+  --tint:  #{colors.$focus-yellow};
+}
+
+.tint-red {
+  --tint:  #{colors.$focus-red};
+}
+
+.loadingContainer {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.loading .loadingContainer {
+  opacity: 1;
+  pointer-events: unset;
+}

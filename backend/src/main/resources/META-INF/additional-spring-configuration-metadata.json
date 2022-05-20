@@ -1,0 +1,40 @@
+{
+  "properties": [
+    {
+      "name": "app.git.location",
+      "type": "java.lang.String",
+      "description": "Location to store the git repositories."
+    },
+    {
+      "name": "app.analyser.host",
+      "type": "java.lang.String",
+      "description": "Host that runs the analyser application."
+    },
+    {
+      "name": "app.git.max-file-size",
+      "type": "java.lang.Integer",
+      "description": "The maximum size (in bytes) a file can be for it to load the file's content."
+    },
+    {
+      "name": "app.jira.search-batch-size",
+      "type": "java.lang.Integer",
+      "description": "The amount of issues to fetch at once."
+    },
+    {
+      "name": "app.git.max-file-snap-batch",
+      "type": "java.lang.Integer",
+      "description": "The maximum amount of files that can be stored in memory when creating snapshots."
+    }
+  ],
+  "hints": [
+    {
+      "name": "spring.profiles.active",
+      "providers": [
+        {
+          "name": "docker",
+          "description": "Profile used by the docker container."
+        }
+      ]
+    }
+  ]
+}

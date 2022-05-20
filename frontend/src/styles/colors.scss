@@ -1,0 +1,23 @@
+@use "sass:color";
+
+$background-main: #121315;
+$background-header: #202126;
+
+$primary: rgb(1, 106, 249);
+$active-item-background: #103de0;
+$hover-item-background: color.adjust($active-item-background, $alpha: -0.6);
+
+$background-back: #171717;
+$background-front: #202020;
+$background-popup: #2A2A2A;
+
+$text-primary: #ffffff;
+$text-secondary: #DADADA;
+$text-inactive: #6C7276;
+
+$separator: #2A2A2A;
+
+$focus-green: #35BD3D;
+$focus-blue: #2835FF;
+$focus-yellow: #F9BF21;
+$focus-red: #F65354;

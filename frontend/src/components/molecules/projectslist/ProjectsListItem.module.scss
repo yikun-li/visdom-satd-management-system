@@ -1,0 +1,19 @@
+.content {
+  position: relative;
+  height: 100%;
+}
+
+.title {
+  margin-bottom: 12px;
+}
+
+.bottomRight {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+}
+
+.stat {
+  margin-left: 16px;
+}

@@ -1,0 +1,12 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+
+.paragraph {
+  font-family: fonts.$default;
+  color: colors.$text-primary;
+  margin: 0;
+}
+
+.secondary {
+  color: colors.$text-secondary;
+}

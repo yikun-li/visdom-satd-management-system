@@ -1,0 +1,34 @@
+@use "../../../styles/colors";
+
+$size: 24px;
+
+.container {
+  width: $size;
+  height: $size;
+  border-radius: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  border: solid 2px colors.$text-inactive;
+}
+
+.container.checked {
+  border-color: colors.$primary;
+}
+
+.input {
+  display: none;
+}
+
+.check {
+  width: 12px;
+  height: 12px;
+  color: colors.$primary;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.checked .check {
+  opacity: 1;
+}

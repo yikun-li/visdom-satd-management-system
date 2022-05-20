@@ -1,0 +1,21 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+
+.container {
+  display: flex;
+  color: colors.$text-primary;
+  align-items: center;
+}
+
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.amount {
+  font-family: fonts.$header;
+  font-size: 18px;
+  font-weight: 600;
+}

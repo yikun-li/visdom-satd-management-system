@@ -1,0 +1,47 @@
+@use "../../../styles/colors";
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  padding-top: 120px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: 0.2s opacity;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.backdropClosing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.container {
+  //background: colors.$background-front;
+  background: colors.$background-back;
+  //overflow: hidden;
+  margin-bottom: 120px;
+  animation: ModalOpen 0.2s 1;
+  width: 800px;
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 8px 20px 12px;
+  color: colors.$text-primary;
+}
+
+.containerClosing {
+  animation: ModalOpen 0.2s 1 reverse;
+}
+
+@keyframes ModalOpen {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

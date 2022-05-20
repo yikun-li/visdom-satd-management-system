@@ -1,0 +1,40 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.spacing-l {
+  --spacing: 24px;
+}
+
+.spacing-m {
+  --spacing: 12px;
+}
+
+.spacing-s {
+  --spacing: 8px;
+}
+
+.stack:not(.horizontal) > .item:not(:last-child) {
+  margin-bottom: var(--spacing);
+}
+
+.stack.horizontal > .item:not(:last-child) {
+  margin-right: var(--spacing);
+}
+
+.flex {
+  flex: 1;
+}
+
+.center {
+  align-items: center;
+}
+
+.end {
+  justify-content: flex-end;
+}

@@ -1,0 +1,83 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+@use "sass:color";
+
+$active-item-background: #103de0;
+$width: 300px;
+
+.navbar {
+  width: $width;
+  background: colors.$background-front;
+  margin-right: 48px;
+  border-right: solid 1px colors.$separator;
+}
+
+.header {
+  height: 104px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: fonts.$header;
+  color: #ffffff;
+}
+
+.list {
+  list-style: none;
+  margin: 24px 24px 0;
+  padding: 0;
+}
+
+.item {
+  margin-block: 16px;
+}
+
+.button {
+  border-radius: 12px;
+  padding: 14px 24px;
+  display: flex;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+  color: colors.$text-inactive;
+  transition: 0.2s;
+}
+
+.active .button {
+  color: colors.$text-primary;
+  background-color: $active-item-background;
+  opacity: 1;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.item:not(.active) .button:hover {
+  background-color: color.adjust($active-item-background, $alpha: -0.6);
+  color: color.mix(colors.$text-primary, colors.$text-inactive, 50%);
+}
+
+.label {
+  font-weight: 400;
+  font-size: 15px;
+  font-family: fonts.$header;
+}
+
+.active .label {
+  color: colors.$text-primary;
+  font-weight: 600;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 24px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(171, 203, 250, 0.1);
+  margin-block: 24px;
+}

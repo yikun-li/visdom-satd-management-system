@@ -1,0 +1,90 @@
+@use "../../../styles/colors";
+
+.container {
+  background-color: colors.$background-front;
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  transition: 0.2s;
+}
+
+.container.loading {
+  opacity: 0.8;
+}
+
+.fill-blue {
+  background-color: colors.$focus-blue;
+}
+
+.fill-green {
+  background-color: colors.$focus-green;
+}
+
+.fill-yellow {
+  background-color: colors.$focus-yellow
+}
+
+.fill-red {
+  background-color: colors.$focus-red;
+}
+
+.content {
+  position: relative;
+}
+
+.title {
+  color: colors.$text-primary;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+}
+
+.numberTitle {
+  margin: 0;
+  font-size: 14px;
+}
+
+.numberAmount {
+  margin: 0 0 12px;
+}
+
+.numberLeft {
+  flex: 1;
+}
+
+.loadingContainer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.loading .loadingContainer {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.fullHeight {
+  height: calc(100vh - 192px);
+}
+
+.fullHeight .content {
+  height: 100%;
+}

@@ -1,0 +1,9 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+
+.container {
+  font-family: fonts.$code;
+  padding: 8px 12px;
+  border: solid 1px #868686;
+  border-radius: 12px;
+}

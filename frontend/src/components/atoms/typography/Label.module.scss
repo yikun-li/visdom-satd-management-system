@@ -1,0 +1,32 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+
+.container {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-family: fonts.$header;
+  font-weight: 600;
+}
+
+.blue {
+  --color: #{colors.$focus-blue};
+}
+.green {
+  --color: #{colors.$focus-green};
+}
+.yellow {
+  --color: #{colors.$focus-yellow};
+}
+.red {
+  --color: #{colors.$focus-red};
+}
+
+.fill {
+  background-color: var(--color);
+  color: colors.$background-back;
+}
+
+.border {
+  border: solid 1px var(--color);
+  color: var(--color);
+}

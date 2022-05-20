@@ -1,0 +1,6 @@
+example/
+venv/
+.env
+.env.template
+.gitignore
+data/

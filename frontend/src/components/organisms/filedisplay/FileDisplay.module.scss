@@ -1,0 +1,18 @@
+@use "../../../styles/colors";
+
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: colors.$background-back;
+  width: 65vw;
+  transform: translateX(65vw);
+  transition: 0.2s;
+  padding-inline: 48px;
+  overflow-y: auto;
+}
+
+.open {
+  transform: none;
+}

@@ -1,0 +1,9 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+
+.label {
+  display: block;
+  margin-left: 6px;
+  margin-bottom: 6px;
+  color: colors.$text-secondary;
+}

@@ -1,0 +1,49 @@
+@use "../../../styles/colors";
+
+.buttonContainer {
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: colors.$background-popup;
+  width: 240px;
+  padding-block: 12px;
+  z-index: 20;
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: #0000001c 0 4px 8px 8px;
+  cursor: default;
+  transform: translateY(24px);
+  transition: 0.2s;
+}
+
+.container.open {
+  pointer-events: unset;
+  opacity: 1;
+  transform: none;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  padding-inline: 24px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: 0.2s;
+  cursor: pointer;
+  color: colors.$text-primary;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}

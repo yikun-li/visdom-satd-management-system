@@ -1,0 +1,22 @@
+@use "../../../styles/colors";
+@use "../../../styles/fonts";
+@use "sass:color";
+
+.base {
+  background: colors.$background-front;
+  font-family: fonts.$default;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  transition: 0.2s;
+  font-weight: 500;
+  color: colors.$text-primary;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px color.adjust(colors.$primary, $alpha: -0.2);
+  }
+}
+

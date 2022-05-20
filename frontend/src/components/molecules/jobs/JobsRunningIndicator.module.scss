@@ -1,0 +1,32 @@
+@use "../navigation/NavBar.module";
+@use "../../../styles/colors";
+
+$margin: 24px;
+
+.container {
+  position: fixed;
+  bottom: $margin;
+  left: $margin;
+  width: (NavBar.$width - $margin * 2);
+  height: 80px;
+  background-color: colors.$background-popup;
+  border-radius: 12px;
+  transition: 0.2s;
+  padding: 12px 12px 12px 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.empty {
+  transform: translateX(-(NavBar.$width));
+}
+
+.text {
+  margin-left: 12px;
+}

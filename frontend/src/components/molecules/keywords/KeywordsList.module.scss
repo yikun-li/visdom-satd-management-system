@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.keyword {
+  padding: 0 4px;
+  font-size: 14px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  border-radius: 4px;
+}

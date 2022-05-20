@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  backend:
+    build: backend
+    environment: 
+      DATABASE_URL: postgresql://database:5432/techdebt
+      DATABASE_USER: techdebt
+      DATABASE_PASS: qc929jW6mMGs7
+      ANALYSER_HOST: http://analyser:5000
+    volumes:
+      - gitrepos:/gitrepos
+
+  frontend:
+    build: frontend
+    environment: 
+      BACKEND_HOST: http://backend:8080
+      DATABASE_URL: postgresql://database:5432/techdebt
+      DATABASE_USER: techdebt
+      DATABASE_PASS: qc929jW6mMGs7
+  
+  analyser:
+    build: analyser
+    environment: 
+      DATABASE_URL: postgresql://database:5432/techdebt
+      DATABASE_USER: techdebt
+      DATABASE_PASS: qc929jW6mMGs7
+      COMMENT_MODEL_FILE: /app/comment_model.hdf5
+      ISSUE_MODEL_FILE: /app/issue_model.hdf5
+      WORD_EMBEDDING_FILE: /app/fasttext_issue_300.bin
+    volumes: 
+      - ../data/satd-code-comment-model.hdf5:/app/comment_model.hdf5:ro
+      - ../data/satd-issue-model.hdf5:/app/issue_model.hdf5:ro
+      - ../data/fasttext_issue_300.bin:/app/fasttext_issue_300.bin:ro
+  
+  database:
+    image: postgres:13
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment: 
+      POSTGRES_PASSWORD: qc929jW6mMGs7
+      POSTGRES_USER: techdebt
+      POSTGRES_DB: techdebt
+#    ports: 
+#      - "5432:5432"
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/proxy.conf:/etc/nginx/proxy.conf:ro
+      - ./nginx/server.conf:/etc/nginx/server.conf:ro
+    ports:
+      - "80:80"
+
+volumes:
+  pgdata: {}
+  gitrepos: {}

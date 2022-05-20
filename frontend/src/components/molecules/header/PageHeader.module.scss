@@ -1,0 +1,21 @@
+@use "../../../styles/colors";
+
+.header {
+  margin: 16px 0 32px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.title {
+  flex: 1;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+
+svg.backIcon {
+  width: 28px;
+  height: 28px;
+  color: colors.$text-inactive;
+}

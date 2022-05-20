@@ -1,0 +1,43 @@
+@use "../../../styles/colors";
+
+.container {
+  display: block;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 12px;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  &:hover::after {
+
+    opacity: 0.4;
+  }
+}
+
+.notAnalysed::after {
+    background-color: colors.$focus-yellow;
+  }
+
+.notDebt::after {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.debt::after {
+    background-color: colors.$focus-blue;
+  }
+
+.typeLabel {
+  position: absolute;
+  bottom: 0;
+  right: 4px;
+  background-color: colors.$background-popup;
+  padding: 1px 4px;
+  border-radius: 4px;
+  z-index: 20;
+}

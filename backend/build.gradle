@@ -1,0 +1,86 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'antlr'
+    id 'idea'
+}
+
+group = 'nl.rug.mvittersum.bproj'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+
+    //eliminates logback
+//    all*.exclude group: 'ch.qos.logback'
+
+    //eliminates StackOverflowError
+    all*.exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+    all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://m2proxy.atlassian.com/repository/public" }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.liquibase:liquibase-core'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:3.5.0.201409260305-r'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    antlr 'org.antlr:antlr4:4.9.2'
+    // compile 'org.antlr:antlr4-runtime:4.9.2'
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-app', version: '5.2.0'
+
+    // implementation "org.springframework.boot:spring-boot-starter-log4j2"
+    // modules {
+    //     module("org.springframework.boot:spring-boot-starter-logging") {
+    //         replacedBy("org.springframework.boot:spring-boot-starter-log4j2", "Use Log4j2 instead of Logback")
+    //     }
+    // }
+}
+
+generateGrammarSource {
+    maxHeapSize = "128m"
+    arguments += ['-visitor', '-no-listener']
+}
+
+compileJava.dependsOn generateGrammarSource
+
+sourceSets {
+    generated {
+        java.srcDir 'generated-src/antlr/main/'
+    }
+}
+compileJava.source sourceSets.generated.java, sourceSets.main.java
+
+clean{
+    delete "generated-src"
+}
+
+idea {
+    module {
+        sourceDirs += file("generated-src/antlr/main/")
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

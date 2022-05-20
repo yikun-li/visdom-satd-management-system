@@ -1,0 +1,9 @@
+@use "../../../styles/colors";
+
+.container {
+  background-color: colors.$background-popup;
+  padding: 12px 24px;
+  color: colors.$text-primary;
+  border-radius: 12px;
+  box-shadow: #0000001c 0 4px 8px 8px;
+}
